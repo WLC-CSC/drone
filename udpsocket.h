@@ -27,7 +27,7 @@ public:
     std::string recv();
 
 private:
-    std::string ip_address;  // ip addrs
+    std::string ip_address;
     int port;
 #ifdef _WIN32
     SOCKET socket_handle;

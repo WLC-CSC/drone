@@ -60,9 +60,11 @@ UDPSocket::UDPSocket(const std::string& ip_address, int port)
 }
 
 UDPSocket::~UDPSocket() {
-    closesocket(socket_handle);
 #ifdef _WIN32
     WSACleanup();
+    closesocket(socket_handle);
+#else
+    close(socket_handle);
 #endif
 }
 
