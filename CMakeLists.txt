@@ -6,7 +6,6 @@ add_compile_options(-std=c++17 -g -Wall -Wextra -pedantic)
 
 add_library(udp udpsocket.cpp)
 add_library(drone drone.cpp)
-add_library(commands commands.cpp)
 if(WIN32)
 target_link_libraries(udp wsock32)
 endif (WIN32)
@@ -15,4 +14,4 @@ add_executable(repl repl.cpp)
 target_link_libraries(repl PUBLIC udp)
 
 add_executable(main main.cpp)
-target_link_libraries(main PUBLIC udp drone commands)
+target_link_libraries(main PUBLIC udp drone)

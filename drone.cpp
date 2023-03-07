@@ -160,6 +160,102 @@ void Drone::go_xyz_speed(int x, int y, int z, int speed) {
     }
 }
 
+void Drone::curve_xyz_speed(int x1, int y1, int z1, int x2, int y2, int z2,
+                            int speed) {
+    int abs_x1 = std::abs(x1);
+    int abs_y1 = std::abs(y1);
+    int abs_z1 = std::abs(z1);
+    int abs_x2 = std::abs(x2);
+    int abs_y2 = std::abs(y2);
+    int abs_z2 = std::abs(z2);
+
+    bool x1_is_good = false;
+    bool y1_is_good = false;
+    bool z1_is_good = false;
+    bool x2_is_good = false;
+    bool y2_is_good = false;
+    bool z2_is_good = false;
+    bool speed_is_good = false;
+
+    if (abs_x1 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for x1.\n";
+    } else if (abs_x1 <= 500) {
+        x1_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for x1.\n";
+    }
+
+    if (abs_y1 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for y1.\n";
+    } else if (abs_y1 <= 500) {
+        y1_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for y1.\n";
+    }
+
+    if (abs_z1 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for z1.\n";
+    } else if (abs_z1 <= 500) {
+        z1_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for z1.\n";
+    }
+
+    if (abs_x2 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for x2.\n";
+    } else if (abs_x2 <= 500) {
+        x2_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for x2.\n";
+    }
+
+    if (abs_y2 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for y2.\n";
+    } else if (abs_y2 <= 500) {
+        y2_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for y2.\n";
+    }
+
+    if (abs_z2 < 20) {
+        std::cerr << "Distance must be greater than or equal to the "
+                     "absolute value of 20cm for z2.\n";
+    } else if (abs_z2 <= 500) {
+        z2_is_good = true;
+    } else {
+        std::cerr << "Distance must be less than or equal to the "
+                     "absolute value of 500cm for z2.\n";
+    }
+
+    if (speed < 10) {
+        std::cerr << "Speed must be greater than or equal to 10cm/s.\n";
+    } else if (speed <= 60) {
+        speed_is_good = true;
+    } else {
+        std::cerr << "Speed must be less than or equal to 60cm/s.\n";
+    }
+
+    if (x1_is_good && y1_is_good && z1_is_good && x2_is_good && y2_is_good &&
+        z2_is_good && speed_is_good) {
+        send_and_receive("curve " + std::to_string(x1) + " " +
+                         std::to_string(y1) + " " + std::to_string(z1) + " " +
+                         std::to_string(x2) + " " + std::to_string(y2) + " " +
+                         std::to_string(z2) + " " + std::to_string(speed));
+    } else {
+        std::cerr << "Value error\n";
+    }
+}
+
 void Drone::read_speed() {
     send_and_receive("speed?");
 }

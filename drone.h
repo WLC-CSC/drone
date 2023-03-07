@@ -24,8 +24,8 @@ public:
     void backward(int distance);
     void clockwise(int degrees);
     void counter_clockwise(int degrees);
-    void xyz(int x, int y, int z);
-    void manhattan_xyz(int x, int y, int z);
+    // void xyz(int x, int y, int z);
+    // void manhattan_xyz(int x, int y, int z);
     void go_xyz_speed(int x, int y, int z, int speed);
     void curve_xyz_speed(int x1, int y1, int z1, int x2, int y2, int z2,
                          int speed);
