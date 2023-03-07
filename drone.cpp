@@ -8,29 +8,6 @@ void Drone::send_and_receive(std::string command) {
     std::cout << socket.recv() << '\n';
 }
 
-// void Drone::handle_xyz_values(int x, int y, ) {
-//     int abs_x = std::abs(x);
-//     int abs_y = std::abs(y);
-//     int abs_z = std::abs(z);
-//     std::string final_x;
-//     std::string final_y;
-//     std::string final_z;
-//     int max_value = std::max((abs_x, abs_y), abs_z);
-//     int min_value = std::min((abs_x, abs_y), abs_z);
-//     bool extra_x_iteration;
-//     bool extra_y_iteration;
-//     bool extra_z_iteration;
-//     bool extra_speed_iteration;
-//     int x_iterations;
-//     int y_iterations;
-//     int z_iterations;
-//     int speed_iterations;
-//     int x_remaining;
-//     int y_remaining;
-//     int z_remaining;
-//     int speed_remaining;
-// }
-
 void Drone::handle_int_values(std::string command, int lower_bound,
                               int upper_bound, int value) {
     if (value > lower_bound) {
