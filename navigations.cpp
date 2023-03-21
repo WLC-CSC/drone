@@ -3,6 +3,8 @@
 #include <cmath>
 #include <stdexcept>
 
+Navigations::Navigations(Drone drone) : drone{drone} {}
+
 void Navigations::lower_bound_check(int value, int lower_bound) {
     if (value < lower_bound) {
         throw std::runtime_error(

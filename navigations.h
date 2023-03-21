@@ -5,7 +5,7 @@
 
 class Navigations {
 public:
-    Navigations();
+    Navigations(Drone drone);
     void lower_bound_check(int value, int lower_bound);
     // Navigation Commands
     void go_manhatten_xyz(int x, int y, int z);
@@ -13,10 +13,4 @@ public:
 
 private:
     Drone drone;
-    int value;
-    int lower_bound;
-    int upper_bound;
-    int x;
-    int y;
-    int z;
 };

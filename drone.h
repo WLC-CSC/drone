@@ -3,7 +3,8 @@
 
 class Drone {
 public:
-    Drone();
+    Drone(std::string ip = "192.168.10.1", int port = 8889);
+    ~Drone();
     void send_and_receive(std::string command);
     void handle_default_bounds(int value, int lower_bound, int upper_bound);
 
@@ -36,23 +37,5 @@ public:
     void streamoff();
 
 private:
-    const std::string ip = "192.168.10.1";
-    const int port = 8889;
     UDPSocket socket;
-    std::string command;
-    int lower_bound;
-    int upper_bound;
-    int value;
-    int distance;
-    int degrees;
-    int speed;
-    int x;
-    int y;
-    int z;
-    int x1;
-    int y1;
-    int z1;
-    int x2;
-    int y2;
-    int z2;
 };

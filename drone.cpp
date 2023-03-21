@@ -1,11 +1,14 @@
 #include "drone.h"
 
-#include <cmath>
 #include <iostream>
 
-Drone::Drone() : socket{ip, port} {
+Drone::Drone(std::string ip, int port) : socket{ip, port} {
     socket.send("command");
     std::cout << socket.recv() << '\n';
+}
+
+Drone::~Drone() {
+    send_and_receive("land");
 }
 
 void Drone::send_and_receive(std::string command) {
@@ -13,7 +16,7 @@ void Drone::send_and_receive(std::string command) {
     std::cout << socket.recv() << '\n';
 }
 
-void handle_default_bounds(int value, int lower_bound, int upper_bound) {
+void Drone::handle_default_bounds(int value, int lower_bound, int upper_bound) {
     if (value < lower_bound) {
         throw std::runtime_error("Value cannot be lower than " +
                                  std::to_string(lower_bound));
