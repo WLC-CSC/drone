@@ -1,9 +1,14 @@
+#include <iostream>
+#include <stdexcept>
+
 #include "drone.h"
 #include "udpsocket.h"
 
 int main() {
-    Drone drone{};
-    drone.takeoff();
-    drone.flip('l');
-    drone.land();
+    try {
+        Drone drone{};
+        drone.takeoff();
+    } catch (std::exception& e) {
+        std::cout << e.what();
+    }
 }
