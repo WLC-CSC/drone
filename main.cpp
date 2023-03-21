@@ -1,18 +1,14 @@
-#include <iostream>
+#include <stdexcept>
 
 #include "drone.h"
 #include "state.h"
 #include "udpsocket.h"
 
 int main() {
-    // Drone drone{};
-    State state{};
-    // drone.takeoff();
-    // drone.forward(50);
-    // drone.read_battery();
-    while (true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        std::cout << "State: \n" << state.get_state() << "\n\n";
+    try {
+        Drone drone{};
+        drone.takeoff();
+    } catch (std::exception& e) {
+        std::cout << e.what();
     }
-    // drone.land();
 }
