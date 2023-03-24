@@ -121,6 +121,34 @@ void Drone::read_sn() {
     send_and_receive("sn?");
 }
 
+void Drone::streamoff() {
+    send_and_receive("streamoff");
+}
+
 void Drone::streamon() {
     send_and_receive("streamon");
+}
+
+void Drone::read_temp() {
+    send_and_receive("temp?");
+}
+
+void Drone::read_height() {
+    send_and_receive("height?");
+}
+
+void Drone::read_attitude() {
+    send_and_receive("attitude?");
+}
+
+void Drone::read_tof() {
+    send_and_receive("tof?");
+}
+
+void Drone::read_acceleration() {
+    send_and_receive("acceleration?");
+}
+
+void Drone::read_baro() {
+    send_and_receive("baro?");
 }

@@ -32,6 +32,13 @@ public:
     void read_sdk();
     void read_sn();
 
+    void read_temp();
+    void read_height();
+    void read_attitude();
+    void read_tof();
+    void read_acceleration();
+    void read_baro();
+
     // Video Stream
     void streamon();
     void streamoff();
