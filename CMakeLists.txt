@@ -11,10 +11,10 @@ add_library(navigations navigations.cpp)
 if(WIN32)
 target_link_libraries(udp wsock32)
 endif (WIN32)
+target_link_libraries(drone PUBLIC udp)
 
 add_executable(repl repl.cpp)
 target_link_libraries(repl PUBLIC udp)
 
 add_executable(main main.cpp)
 target_link_libraries(main PUBLIC udp drone navigations state)
-
