@@ -3,13 +3,14 @@
 #include <mutex>
 #include <thread>
 
+#include "statedata.h"
 #include "udpsocket.h"
 
 class State {
 public:
     State(std::string ip = "0.0.0.0", int port = 8890);
     ~State();
-    std::string get_state();
+    StateData get_state();
 
 private:
     UDPSocket socket;

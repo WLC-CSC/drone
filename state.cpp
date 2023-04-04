@@ -1,9 +1,11 @@
 #include "state.h"
 
 #include <chrono>
+#include <sstream>
 #include <thread>
 
-State::State(std::string ip, int port) : socket{ip, port}, running{false}, thread{&State::recv, this} {
+State::State(std::string ip, int port)
+    : socket{ip, port}, running{false}, thread{&State::recv, this} {
     UDPSocket s{"192.168.10.1", 8889};
     s.send("command");
     s.recv();
@@ -17,9 +19,9 @@ State::~State() {
     thread.join();
 }
 
-std::string State::get_state() {
+StateData State::get_state() {
     std::lock_guard<std::mutex> lock(m);
-    return state_info;
+    return StateData(state_info);
 }
 
 void State::recv() {
