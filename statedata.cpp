@@ -13,43 +13,55 @@ StateData::StateData(std::string state_info) {
         std::getline(token_ss, key, ':');
         std::getline(token_ss, value, ':');
         if (key == "pitch") {
-            pitch += "Pitch: " + value + " ";
+            pitch = std::stoi(value);
         } else if (key == "roll") {
-            roll += "Roll: " + value + " ";
+            roll = std::stoi(value);
         } else if (key == "yaw") {
-            yaw += "Yaw: " + value + " ";
+            yaw = std::stoi(value);
         } else if (key == "vgx") {
-            speed_x += "Speed X: " + value + " ";
+            speed_x = std::stoi(value);
         } else if (key == "vgy") {
-            speed_y += "Speed Y: " + value + " ";
+            speed_y = std::stoi(value);
         } else if (key == "vgz") {
-            speed_z += "Speed Z: " + value + " ";
+            speed_z = std::stoi(value);
         } else if (key == "templ") {
-            lowest_temp += "Lowest Temperature: " + value + " ";
+            lowest_temp = std::stoi(value);
         } else if (key == "temph") {
-            highest_temp += "Highest Temperature: " + value + " ";
+            highest_temp = std::stoi(value);
         } else if (key == "tof") {
-            time_of_flight += "Time of Flight: " + value + " ";
+            time_of_flight = std::stoi(value);
         } else if (key == "h") {
-            height += "Height: " + value + " ";
+            height = std::stoi(value);
         } else if (key == "bat") {
-            battery += "Battery: " + value + " ";
+            battery = std::stoi(value);
         } else if (key == "baro") {
-            barometer += "Barometer: " + value + " ";
+            barometer = std::stod(value);
         } else if (key == "time") {
-            time += "Time: " + value + " ";
+            time = std::stoi(value);
         } else if (key == "agx") {
-            acceleration_x += "Acceleration X: " + value + " ";
+            acceleration_x = std::stod(value);
         } else if (key == "agy") {
-            acceleration_y += "Acceleration Y: " + value + " ";
+            acceleration_y = std::stod(value);
         } else if (key == "agz") {
-            acceleration_z += "Acceleration Z: " + value + " ";
+            acceleration_z = std::stod(value);
         }
     }
 }
 
 std::string StateData::get_state() {
-    return pitch + roll + yaw + speed_x + speed_y + speed_z + lowest_temp +
-           highest_temp + time_of_flight + height + battery + barometer + time +
-           acceleration_x + acceleration_y + acceleration_z;
+    return "Pitch: " + std::to_string(pitch) + " Roll: " + std::to_string(roll) +
+           " Yaw: " + std::to_string(yaw) +
+           " Speed X: " + std::to_string(speed_x) +
+           " Speed Y: " + std::to_string(speed_y) +
+           " Speed Z: " + std::to_string(speed_z) +
+           " Lowest Temperature: " + std::to_string(lowest_temp) +
+           " Highest Temperature: " + std::to_string(highest_temp) +
+           " Time of Flight: " + std::to_string(time_of_flight) +
+           " Height: " + std::to_string(height) +
+           " Battery: " + std::to_string(battery) +
+           " Barometer: " + std::to_string(barometer) +
+           " Time: " + std::to_string(time) +
+           " Acceleration X: " + std::to_string(acceleration_x) +
+           " Acceleration Y: " + std::to_string(acceleration_y) +
+           " Acceleration Z: " + std::to_string(acceleration_z);
 }
