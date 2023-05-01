@@ -10,9 +10,9 @@
 
 int main() {
     try {
-        // Drone drone{};
+        Drone drone{};
         // State state;
-        // drone.takeoff();
+        drone.takeoff();
 
         // while (true) {
         //     std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -20,7 +20,7 @@ int main() {
         //     std::cout << statedata.get_state() << "\n";
         // }
 
-        // fly_manhatten_xyz(drone, 600, 500, 70);
+        fly_manhatten_xyz(drone, 600, 500, 70);
 
         // std::vector<Coordinate> path =
         //     get_manhatten_coordinates(2030, 1019, -2310);
@@ -28,7 +28,6 @@ int main() {
         //     std::cout << "x: " << coordinate.x << ", y: " << coordinate.y
         //               << ", z: " << coordinate.z << std::endl;
         // }
-        std::cout << "hello";
     } catch (std::exception& e) {
         std::cout << e.what();
     }

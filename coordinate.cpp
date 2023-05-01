@@ -19,7 +19,6 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_x = -500;
                 x += 500;
             }
-            continue;
         } else if (abs(x) >= 500) {
             if (x > 0) {
                 next_x = 400;
@@ -28,18 +27,17 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_x = -400;
                 x += 400;
             }
-            continue;
-        } else if (abs(x) >= 20 && abs(x) < 500) {
-            if (x > 0) {
-                next_x = x - (x % 20);
-                if ((x % 20) < 20 && (x % 20) > 0) {
-                    x -= (x % 20);
-                    next_x += (x % 20);
-                } else {
-                    x -= next_x;
-                }
+        } else if (abs(x) >= 40) {
+            if (x < 0) {
+                next_x = x + 20;
+                x = -20;
+            } else {
+                next_x = x - 20;
+                x = 20;
             }
-            continue;
+        } else {
+            next_x = x;
+            x = 0;
         }
 
         if (abs(y) >= 520) {
@@ -50,7 +48,6 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_y = -500;
                 y += 500;
             }
-            continue;
         } else if (abs(y) >= 500) {
             if (y > 0) {
                 next_y = 400;
@@ -59,18 +56,17 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_y = -400;
                 y += 400;
             }
-            continue;
-        } else if (abs(y) >= 20 && abs(y) < 500) {
-            if (y > 0) {
-                next_y = y - (y % 20);
-                if ((y % 20) < 20 && (y % 20) > 0) {
-                    y -= (y % 20);
-                    next_y += (y % 20);
-                } else {
-                    y -= next_y;
-                }
+        } else if (abs(y) >= 40) {
+            if (y < 0) {
+                next_y = y + 20;
+                y = -20;
+            } else {
+                next_y = y - 20;
+                y = 20;
             }
-            continue;
+        } else {
+            next_y = y;
+            y = 0;
         }
 
         if (abs(z) >= 520) {
@@ -81,7 +77,6 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_z = -500;
                 z += 500;
             }
-            continue;
         } else if (abs(z) >= 500) {
             if (z > 0) {
                 next_z = 400;
@@ -90,18 +85,17 @@ std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z) {
                 next_z = -400;
                 z += 400;
             }
-            continue;
-        } else if (abs(z) >= 20 && abs(z) < 500) {
-            if (z > 0) {
-                next_z = z - (z % 20);
-                if ((z % 20) < 20 && (z % 20) > 0) {
-                    z -= (z % 20);
-                    next_z += (z % 20);
-                } else {
-                    z -= next_z;
-                }
+        } else if (abs(z) >= 40) {
+            if (z < 0) {
+                next_z = z + 20;
+                z = -20;
+            } else {
+                next_z = z - 20;
+                z = 20;
             }
-            continue;
+        } else {
+            next_z = z;
+            z = 0;
         }
 
         Coordinate coordinate(next_x, next_y, next_z);
