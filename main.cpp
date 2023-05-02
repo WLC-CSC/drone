@@ -12,7 +12,7 @@ int main() {
     try {
         Drone drone{};
         // State state;
-        drone.takeoff();
+        // drone.takeoff();
 
         // while (true) {
         //     std::this_thread::sleep_for(std::chrono::milliseconds(100));

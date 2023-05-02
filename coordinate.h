@@ -9,3 +9,4 @@ public:
 };
 
 std::vector<Coordinate> get_manhatten_coordinates(int x, int y, int z);
+std::vector<Coordinate> get_coordinates(int x, int y, int z);

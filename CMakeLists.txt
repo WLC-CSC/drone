@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(drone)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-add_compile_options(-std=c++17 -g -Wall -Wextra -pedantic)
+add_compile_options(-std=c++17 -g -Wall -Wextra -pedantic -lws2_32)
 
 add_library(udp udpsocket.cpp)
 add_library(drone drone.cpp)
