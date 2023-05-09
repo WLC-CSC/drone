@@ -32,7 +32,7 @@ void fly_xyz(Drone drone, int x, int y, int z) {
     std::vector<Coordinate> path = get_coordinates(x, y, z);
     for (auto [x, y, z] : path) {
         if (x < 0) {
-            drone.left(abs(x));
+            drone.send_and_receive("left" + std::to_string(abs(x)));
         } else if (x >= 0) {
             drone.right(abs(x));
         }

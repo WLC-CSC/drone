@@ -118,8 +118,6 @@ std::vector<Coordinate> get_coordinates(int x, int y, int z) {
     double y_multiplier = 0.0;
     double z_multiplier = 0.0;
     while (x != 0 || y != 0 || z != 0) {
-        int iterations = ((std::min({abs(x), abs(y), abs(z)})) / 20) + 1;
-
         if (abs(x) < abs(y) && abs(x) < abs(z)) {
             x_multiplier = 1;
             y_multiplier = abs(y) / abs(x);

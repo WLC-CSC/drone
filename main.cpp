@@ -21,13 +21,6 @@ int main() {
         // }
 
         fly_manhatten_xyz(drone, 600, 500, 70);
-
-        // std::vector<Coordinate> path =
-        //     get_manhatten_coordinates(2030, 1019, -2310);
-        // for (const Coordinate& coordinate : path) {
-        //     std::cout << "x: " << coordinate.x << ", y: " << coordinate.y
-        //               << ", z: " << coordinate.z << std::endl;
-        // }
     } catch (std::exception& e) {
         std::cout << e.what();
     }
