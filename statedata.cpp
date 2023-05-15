@@ -5,7 +5,6 @@
 StateData::StateData(std::string state_info) {
     std::stringstream ss(state_info);
     std::string token;
-    std::string result;
     std::string key;
     std::string value;
     while (std::getline(ss, token, ';')) {
@@ -49,8 +48,8 @@ StateData::StateData(std::string state_info) {
 }
 
 std::string StateData::get_state() {
-    return "Pitch: " + std::to_string(pitch) + " Roll: " + std::to_string(roll) +
-           " Yaw: " + std::to_string(yaw) +
+    return "Pitch: " + std::to_string(pitch) +
+           " Roll: " + std::to_string(roll) + " Yaw: " + std::to_string(yaw) +
            " Speed X: " + std::to_string(speed_x) +
            " Speed Y: " + std::to_string(speed_y) +
            " Speed Z: " + std::to_string(speed_z) +
